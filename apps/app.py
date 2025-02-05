@@ -30,9 +30,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from apps.viz import create_map_with_geotiff_tiles
-
-INSTAGEO_APPS_PATH = "./apps"
+from viz import create_map_with_geotiff_tiles
 
 
 
@@ -84,7 +82,7 @@ def main() -> None:
     )
     st.sidebar.header("Settings")
     with open(
-        INSTAGEO_APPS_PATH / "utils/country_code_to_mgrs_tiles.json"
+        "./utils/country_code_to_mgrs_tiles.json"
     ) as json_file:
         countries_to_tiles_map = json.load(json_file)
 
