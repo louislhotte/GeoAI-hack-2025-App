@@ -49,6 +49,10 @@ def generate_map(
         None.
     """
     try:
+        root_path = os.path.abspath(os.getcwd())
+        print(f"Root Path: {root_path}")
+        directory = root_path + '/' + directory
+        print(Path(directory))
         if not directory or not Path(directory).is_dir():
             raise ValueError("Invalid directory path.")
         print(directory)
