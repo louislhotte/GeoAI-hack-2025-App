@@ -27,6 +27,7 @@ import glob
 import json
 import os
 from pathlib import Path
+import re
 
 import streamlit as st
 
@@ -50,18 +51,21 @@ def generate_map(
     """
     try:
         root_path = os.path.abspath(os.getcwd())
-        print(f"Root Path: {root_path}")
         directory = root_path + '/' + directory
-        print(Path(directory))
         if not directory or not Path(directory).is_dir():
             raise ValueError("Invalid directory path.")
-        print(directory)
         prediction_tiles = glob.glob(os.path.join(directory, f"{year}/{month}/*.tif"))
-        print(prediction_tiles[0].split("_")[3].strip("T").strip('.tif'))
+        # print(prediction_tiles[0].split("_")[3].strip("T").strip('.tif'))
+        # tiles_to_consider = [
+        #     tile
+        #     for tile in prediction_tiles
+        #     if os.path.basename(tile).split("_")[3].strip("T").strip('.tif') in country_tiles
+        # ]
+        print(extract_code(prediction_tiles[0]))
         tiles_to_consider = [
             tile
             for tile in prediction_tiles
-            if os.path.basename(tile).split("_")[3].strip("T").strip('.tif') in country_tiles
+            if extract_code(os.path.basename(tile)) in country_tiles
         ]
         print(tiles_to_consider)
         if not tiles_to_consider:
@@ -75,13 +79,20 @@ def generate_map(
         st.error(f"An error occurred: {str(e)}")
 
 
+def extract_code(filename):
+    """
+    Code to extract the es435435 code from the filename so that we can match it to the country code and make it appear on the map
+    """
+    match = re.search(r'_T(.*?)_', filename)
+    return match.group(1) if match else None
+
 def main() -> None:
     """Instageo Serve Main Entry Point."""
     st.set_page_config(layout="wide")
-    st.title("InstaGeo Serve")
+    st.title("Locus Breeding Hotspots Map")
 
     st.sidebar.subheader(
-        "This application enables the visualisation of GeoTIFF files on an interactive map.",
+        "This application provides an interactive mapping solution for visualizing GeoTIFF data, enabling strategic insights into locust breeding hotspots",
         divider="rainbow",
     )
     st.sidebar.header("Settings")

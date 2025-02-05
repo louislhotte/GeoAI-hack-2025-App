@@ -110,8 +110,8 @@ def add_raster_to_plotly_figure(
     # Apply color map
     img = tf.shade(
         agg,
-        cmap=matplotlib.colormaps["Reds"],
-        alpha=100,
+        cmap=matplotlib.colormaps["Reds"],  # Use "Blues" for a white-to-dark-blue gradient
+        alpha=110,
         how="linear",
     )[::-1].to_pil()
     return img, coordinates
@@ -142,8 +142,12 @@ def create_map_with_geotiff_tiles(tiles_to_overlay: list[str]) -> go.Figure:
         Figure: A Plotly figure with overlaid GeoTIFF tiles.
     """
     fig = go.Figure(go.Scattermapbox())
+    # fig.update_layout(
+    #     mapbox_style="open-street-map",
+    #     mapbox=dict(center=go.layout.mapbox.Center(lat=0, lon=20), zoom=2.0),
+    # )
     fig.update_layout(
-        mapbox_style="open-street-map",
+        mapbox_style="carto-positron",
         mapbox=dict(center=go.layout.mapbox.Center(lat=0, lon=20), zoom=2.0),
     )
     fig.update_layout(margin={"r": 0, "t": 40, "l": 0, "b": 0})
