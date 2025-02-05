@@ -30,8 +30,10 @@ from pathlib import Path
 
 import streamlit as st
 
-from instageo import INSTAGEO_APPS_PATH
-from instageo.apps.viz import create_map_with_geotiff_tiles
+from apps.viz import create_map_with_geotiff_tiles
+
+INSTAGEO_APPS_PATH = "./apps"
+
 
 
 def generate_map(
