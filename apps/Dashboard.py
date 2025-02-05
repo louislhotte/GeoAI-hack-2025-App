@@ -16,15 +16,13 @@ st.markdown(
             text-align: center;
             font-size: 36px;
             font-weight: bold;
-            color: #FFD700; /* Golden yellow */
-            text-shadow: 2px 2px 4px #000000;
+            color: black;
         }
         .subtitle {
             text-align: center;
             font-size: 20px;
             font-weight: bold;
             color: white;
-            text-shadow: 2px 2px 4px #000000;
         }
     </style>
     """,
@@ -35,12 +33,12 @@ st.markdown(
 st.markdown('<p class="title">🌍 Locust Breeding Hotspots Forecast</p>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Monitoring and predicting locust outbreaks using geospatial data</p>', unsafe_allow_html=True)
 
-# Add a high-quality locust image
-st.image(
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Schistocerca_gregaria_Egypt_02.jpg/800px-Schistocerca_gregaria_Egypt_02.jpg",
-    caption="Desert Locust Swarm in Action",
-    use_column_width=True,
-)
+# # Add a high-quality locust image
+# st.image(
+#     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Schistocerca_gregaria_Egypt_02.jpg/800px-Schistocerca_gregaria_Egypt_02.jpg",
+#     caption="Desert Locust Swarm in Action",
+#     use_column_width=True,
+# )
 
 # Sidebar Navigation
 st.sidebar.header("🛰️ Navigation")
@@ -67,6 +65,6 @@ st.write(
 # Footer with a call to action
 st.markdown("---")
 st.markdown(
-    "<p style='text-align: center; font-size: 18px; color: #FFD700;'><b>🌾 Predict. Prevent. Protect. 🌍</b></p>",
+    "<p style='text-align: center; font-size: 18px;;'><b>🌾 Predict. Prevent. Protect. 🌍</b></p>",
     unsafe_allow_html=True,
 )
