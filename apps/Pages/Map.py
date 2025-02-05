@@ -30,7 +30,6 @@ from pathlib import Path
 import re
 
 import streamlit as st
-
 from viz import create_map_with_geotiff_tiles
 
 
@@ -89,7 +88,7 @@ def extract_code(filename):
 def main() -> None:
     """Instageo Serve Main Entry Point."""
     st.set_page_config(layout="wide")
-    st.title("Locus Breeding Hotspots Map")
+    st.title("🌍 Locus Breeding Hotspots Map")
 
     st.sidebar.subheader(
         "This application provides an interactive mapping solution for visualizing GeoTIFF data, enabling strategic insights into locust breeding hotspots",
