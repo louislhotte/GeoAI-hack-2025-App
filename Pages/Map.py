@@ -96,7 +96,7 @@ def main() -> None:
     )
     st.sidebar.header("Settings")
     with open(
-        "./apps/utils/country_code_to_mgrs_tiles.json"
+        "./utils/country_code_to_mgrs_tiles.json"
     ) as json_file:
         countries_to_tiles_map = json.load(json_file)
 
