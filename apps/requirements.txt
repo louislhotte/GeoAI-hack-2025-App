@@ -7,3 +7,5 @@ dask==2024.12.1
 matplotlib
 streamlit==1.31.1
 pyproj
+rioxarray
+rasterio
