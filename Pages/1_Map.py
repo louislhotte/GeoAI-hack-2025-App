@@ -54,13 +54,6 @@ def generate_map(
         if not directory or not Path(directory).is_dir():
             raise ValueError("Invalid directory path.")
         prediction_tiles = glob.glob(os.path.join(directory, f"{year}/{month}/*.tif"))
-        # print(prediction_tiles[0].split("_")[3].strip("T").strip('.tif'))
-        # tiles_to_consider = [
-        #     tile
-        #     for tile in prediction_tiles
-        #     if os.path.basename(tile).split("_")[3].strip("T").strip('.tif') in country_tiles
-        # ]
-        print(extract_code(prediction_tiles[0]))
         tiles_to_consider = [
             tile
             for tile in prediction_tiles
